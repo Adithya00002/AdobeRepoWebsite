@@ -1,136 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Website - Home</title>
-    <meta name="description" content="Shop the latest trends in fashion, electronics, and home goods.">
-
+    <title>Ecommerce Website</title>
+          
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <!-- Inlined basic CSS for self-containment in the immersive environment -->
-    <style>
-        /* Basic styling for demonstration purposes - usually in style.css */
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        section { padding: 40px 80px; }
-        #header { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; background-color: #f8f8f8; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 10px; }
-        #header a.logo-link { display: block; } /* Ensure logo link behaves as block */
-        #navbar { display: flex; list-style: none; margin: 0; padding: 0; }
-        #navbar li { padding: 0 15px; }
-        #navbar a { text-decoration: none; color: #333; font-weight: bold; border-radius: 5px; padding: 5px 10px; transition: background-color 0.3s; }
-        #navbar a.active, #navbar a:hover { background-color: #088178; color: white; }
-        #hero-video { position: relative; width: 100%; height: 60vh; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; color: white; border-radius: 10px; margin-top: 20px; }
-        #banner-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1; transform: translate(-50%, -50%); background-size: cover; border-radius: 10px; }
-        .hero-content { z-index: 1; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero-content h4, .hero-content h2, .hero-content h1 { margin: 0; padding: 5px 0; }
-        .action-button { background-color: #088178; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .action-button:hover { background-color: #066d63; transform: translateY(-2px); }
-        #product1 .pro-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
-        .pro { width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid #cce7d0; border-radius: 20px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0,0,0,0.02); margin: 15px 0; transition: 0.2s ease; position: relative; overflow: hidden; }
-        .pro:hover { box-shadow: 20px 20px 30px rgba(0,0,0,0.06); }
-        .pro img { width: 100%; border-radius: 15px; }
-        .pro .des { text-align: start; padding: 10px 0; }
-        .pro .des span { color: #606063; font-size: 12px; }
-        .pro .des h5 { padding-top: 7px; color: #1a1a1a; font-size: 14px; }
-        .pro .des i { font-size: 12px; color: rgb(243, 181, 25); }
-        .pro .des h4 { padding-top: 7px; font-size: 15px; font-weight: 700; color: #088178; }
-        .pro .add-to-cart-btn { background-color: #088178; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; position: absolute; bottom: 10px; right: 10px; transition: background-color 0.3s ease; }
-        .pro .add-to-cart-btn:hover { background-color: #066d63; }
-        #banner { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-image: url('https://placehold.co/1400x300/000000/FFFFFF?text=Sale+Banner'); background-size: cover; background-position: center; height: 40vh; background-color: #333; color: white; border-radius: 10px; margin-top: 20px; }
-        #banner h4 { color: #fff; font-size: 20px; }
-        #banner h2 { color: #fff; font-size: 30px; padding: 10px 0; }
-        #banner h2 span { color: #ffbd27; }
-        #banner button.normal { background-color: #088178; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        #banner button.normal:hover { background-color: #066d63; transform: translateY(-2px); }
-        #banner3 { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 0 80px; margin-top: 20px; }
-        #banner3 .banner-box { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background-image: url('https://placehold.co/450x250/000000/FFFFFF?text=Small+Banner'); background-size: cover; background-position: center; min-width: 30%; height: 30vh; background-color: #333; padding: 20px; margin-bottom: 20px; color: white; border-radius: 10px; cursor: pointer; transition: transform 0.3s ease; }
-        #banner3 .banner-box:hover { transform: translateY(-5px); }
-        #banner3 h2 { color: #fff; font-size: 22px; font-weight: 900; }
-        #banner3 h3 { color: #fff; font-size: 15px; font-weight: 800; }
-        #newsletter { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; background-image: url('https://placehold.co/1400x200/041e42/FFFFFF?text=Newsletter+Banner'); background-repeat: no-repeat; background-position: 20% 30%; background-color: #041e42; padding: 40px 80px; border-radius: 10px; margin-top: 20px; }
-        #newsletter h4 { font-size: 22px; font-weight: 700; color: #fff; }
-        #newsletter p { font-size: 14px; font-weight: 600; color: #818ea0; }
-        #newsletter p span { color: #ffbd27; }
-        #newsletter .form { display: flex; width: 40%; }
-        #newsletter input { height: 3.125rem; padding: 0 1.25em; font-size: 14px; width: 100%; border: 1px solid transparent; border-radius: 4px; outline: none; border-top-right-radius: 0; border-bottom-right-radius: 0; }
-        #newsletter button { background-color: #088178; color: #fff; white-space: nowrap; border-top-left-radius: 0; border-bottom-left-radius: 0; }
-        footer { display: flex; flex-wrap: wrap; justify-content: space-between; padding: 40px 80px; background-color: #f8f8f8; border-radius: 10px; margin-top: 20px; }
-        footer .col { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 20px; }
-        footer h4 { font-size: 14px; padding-bottom: 20px; }
-        footer p { font-size: 13px; margin: 0 0 8px 0; }
-        footer a { font-size: 13px; text-decoration: none; color: #222; margin-bottom: 10px; transition: color 0.3s ease; }
-        footer a:hover { color: #088178; }
-        footer .follow .icon i { color: #465b52; padding-right: 4px; cursor: pointer; font-size: 20px; transition: color 0.3s ease; }
-        footer .follow .icon i:hover { color: #088178; }
-        footer .install .row img { border: 1px solid #088178; border-radius: 6px; width: 150px; margin-right: 10px; }
-        footer .install img { margin: 10px 0 15px 0; }
-        footer .copyright { width: 100%; text-align: center; margin-top: 20px; color: #555; }
-
-        /* Mobile adjustments */
-        #mobile { display: none; } /* Hide mobile menu by default */
-        @media (max-width: 799px) {
-            section { padding: 40px 40px; }
-            #header { padding: 20px 40px; }
-            #navbar { display: none; flex-direction: column; align-items: flex-start; justify-content: flex-start; position: fixed; top: 0; right: -300px; height: 100vh; width: 300px; background-color: #f8f8f8; box-shadow: 0 40px 60px rgba(0,0,0,0.1); padding: 80px 0 0 10px; transition: 0.3s; z-index: 999; }
-            #navbar.active { right: 0px; }
-            #navbar li { margin-bottom: 25px; }
-            #mobile { display: flex; align-items: center; }
-            #mobile i { color: #1a1a1a; font-size: 24px; padding-left: 20px; cursor: pointer; }
-            #close { position: absolute; top: 30px; left: 30px; color: #222; font-size: 24px; cursor: pointer; }
-            #lg-bag { display: none; }
-            #hero-video { height: 70vh; padding: 0 20px; }
-            #banner { height: 30vh; }
-            #product1 .pro-container { justify-content: center; }
-            .pro { margin: 15px; }
-            #banner3 { padding: 0 40px; }
-            #banner3 .banner-box { min-width: 100%; height: 30vh; }
-            #newsletter .form { width: 70%; }
-        }
-        @media (max-width: 477px) {
-            section { padding: 20px; }
-            #header { padding: 10px 20px; }
-            .logo { width: 150px; }
-            #hero-video { padding: 0 10px; }
-            .hero-content h2 { font-size: 38px; }
-            .hero-content h1 { font-size: 48px; }
-            #banner { height: 20vh; }
-            #banner h2 { font-size: 22px; }
-            #banner3 { padding: 0 20px; }
-            #newsletter { padding: 20px; }
-            #newsletter .form { width: 100%; }
-            footer .copyright { text-align: start; }
-        }
-    </style>
-
-    <!-- Adobe AppMeasurement Library (Replace with your actual path) -->
-    <!-- This script should be loaded as early as possible in the <head> -->
-    <script src="/path/to/AppMeasurement.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    
     <section id="header">
-        <a href="#" class="logo-link"><img src="https://placehold.co/200x50/000000/FFFFFF?text=Essentials+Logo" class="logo" alt="Essentials Logo"></a>
+        <a href="#"><img src="./Essentials Logo.png" class="logo" alt=""  width="200"></a>
 
         <div>
             <ul id="navbar">
                 <a href="#" id="close"><i class='fa fa-close'></i></a>
-                <li><a class="nav-link active" href="index.html" data-nav-text="Home">Home</a></li>
-                <li><a class="nav-link" href="shop.html" data-nav-text="Shop">Shop</a></li>
-                <li><a class="nav-link" href="blog.html" data-nav-text="Blog">Blog</a></li>
-                <li><a class="nav-link" href="contact.html" data-nav-text="Contact">Contact</a></li>
-                <li id="lg-bag"><a class="nav-link" href="cart.html" data-nav-text="Cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
             </ul>
         </div>
         <div id="mobile">
             <a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-            <i id="bar" class="fa fa-bars" aria-hidden="true"></i>
+            <i id="bar" class="fa fa-bars" aria-hidden="true"></i>      
+                 
         </div>
     </section>
 
     <section id="hero-video">
         <video autoplay muted loop id="banner-video">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            <source src="./laka.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
@@ -138,360 +44,114 @@
             <h2>Super Value Deals</h2>
             <h1>On all products</h1>
             <p></p>
-            <button id="shopNowBtn" class="action-button">Shop Now</button>
-            <a href="#" class="to-top"></a>
+            <button>Shop Now</button>
+            <a href="#" class="to-top">
+                <!-- <p class="to-top--title">BACK <br> TO TOP</p> -->
+            </a>
         </div>
     </section>
 
     <section id="banner" class="section-m1">
         <h4>Repair Services</h4>
         <h2>Upto <span>70% Off</span>- All T-shirts & Accessories</h2>
-        <button id="exploreMoreBtn" class="normal action-button">Explore More</button>
+        <button class="normal">Explore More</button>
     </section>
 
     <section id="product1" class="section-p1">
         <h2>New Arrivals</h2>
         <p>Summer Collection</p>
         <div class="pro-container" id="product-container-new-arrivals">
-            <!-- Example Product Items - dynamically render these with your actual data -->
-            <!-- These data attributes are crucial for Adobe Analytics tracking -->
-            <div class="pro product-item" data-product-id="P001" data-product-name="Summer T-Shirt" data-product-brand="BrandX" data-product-category="Apparel" data-product-price="25.00">
-                <img src="https://placehold.co/300x300/E0E0E0/333333?text=T-Shirt" alt="Summer T-Shirt">
-                <div class="des">
-                    <span>BrandX</span>
-                    <h5>Summer T-Shirt</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$25.00</h4>
-                </div>
-                <button class="add-to-cart-btn" data-product-id="P001">Add to Cart</button>
             </div>
-            <div class="pro product-item" data-product-id="P002" data-product-name="Denim Jeans" data-product-brand="BrandY" data-product-category="Apparel" data-product-price="55.00">
-                <img src="https://placehold.co/300x300/D0D0D0/333333?text=Jeans" alt="Denim Jeans">
-                <div class="des">
-                    <span>BrandY</span>
-                    <h5>Denim Jeans</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$55.00</h4>
-                </div>
-                <button class="add-to-cart-btn" data-product-id="P002">Add to Cart</button>
-            </div>
-            <div class="pro product-item" data-product-id="P003" data-product-name="Sporty Sneakers" data-product-brand="BrandZ" data-product-category="Footwear" data-product-price="80.00">
-                <img src="https://placehold.co/300x300/C0C0C0/333333?text=Sneakers" alt="Sporty Sneakers">
-                <div class="des">
-                    <span>BrandZ</span>
-                    <h5>Sporty Sneakers</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$80.00</h4>
-                </div>
-                <button class="add-to-cart-btn" data-product-id="P003">Add to Cart</button>
-            </div>
-            <!-- More products would go here -->
-        </div>
-    </section>
 
-    <section id="banner3">
-        <div class="banner-box" data-promo-name="Winter Collection 1">
+    </section>
+<section id="banner3">
+        <div class="banner-box">
             <h2>SEASONAL SALE</h2>
             <h3>Winter Collection</h3>
         </div>
-        <div class="banner-box banner-box2" data-promo-name="Winter Collection 2">
+        <div class="banner-box banner-box2">
             <h2>SEASONAL</h2>
             <h3>Winter Collection</h3>
         </div>
-        <div class="banner-box banner-box3" data-promo-name="Winter Collection 3">
+        <div class="banner-box banner-box3">
             <h2> SALE</h2>
             <h3>Winter Collection</h3>
         </div>
+        
     </section>
 
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
-            <h4>Sign up for newsletters</h4>
+            <h4>Sign uP for newsletters</h4>
             <p>Lorem ipsum dolor sit amet <span>consectetur</span>.</p>
         </div>
         <div class="form">
-            <input type="text" id="newsletterEmail" placeholder="your email address">
-            <button id="newsletterSignupBtn" class="normal action-button">Sign Up</button>
+            <input type="text" placeholder="your email address">
+            <button class="normal">Sign Up</button>
         </div>
     </section>
 
-    <footer class="section-p1">
-        <div class="col">
-            <h4>Contact</h4>
-            <p><strong>Address :</strong> Lorem ipsum dolor sit</p>
-            <p><strong>Phone :</strong> 13569876540</p>
-            <p><strong>Hours :</strong> 5hoai</p>
-            <div class="follow">
-                <h4>Follow Us</h4>
-                <div class="icon">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-pinterest-p"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
+   <footer class="section-p1">
+    <div class="col">
+<!--         <img class="logo" src="img/logo.png" alt=""> -->
+        <h4>Contact</h4>
+        <p><strong>Address :</strong> Lorem ipsum dolor sit</p>
+        <p><strong>Phone :</strong> 13569876540</p>
+        <p><strong>Hours :</strong> 5hoai</p>
+        <div class="follow">
+            <h4>Follow Us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
             </div>
         </div>
+    </div>
 
-        <div class="col">
-            <h4>About</h4>
-            <a href="#" class="footer-link" data-link-name="About Us">About US</a>
-            <a href="#" class="footer-link" data-link-name="Delivery Information">Delivery Information</a>
-            <a href="#" class="footer-link" data-link-name="Privacy Policy">Privacy Policy</a>
-            <a href="#" class="footer-link" data-link-name="Terms & Conditions">Terms & Conditions</a>
-            <a href="#" class="footer-link" data-link-name="Contact Us">Contact Us</a>
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About US</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About US</a>
+    </div>
+
+    <div class="col">
+        <h4>MY Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+    </div>
+
+
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From app store or Google PLay Store</p>
+        <div class="row">
+            <a href="YOUR_APP_STORE_URL_HERE_E.G._https://apps.apple.com/us/app/your-app-name/id123456789" target="_blank" rel="noopener">
+                <img src="img/pay/app.jpg" alt="Download on the App Store">
+            </a>
+        
+            <a href="YOUR_PLAY_STORE_URL_HERE_E.G._https://play.google.com/store/apps/details?id=your.app.id" target="_blank" rel="noopener">
+                <img src="img/pay/play.jpg" alt="Get it on Google Play">
+            </a>
         </div>
+        <p>Secured payment Gateways</p>
+        <img src="img/pay/pay.png" alt="">
+    </div>
 
-        <div class="col">
-            <h4>MY Account</h4>
-            <a href="#" class="footer-link" data-link-name="Sign In">Sign In</a>
-            <a href="#" class="footer-link" data-link-name="View Cart">View Cart</a>
-            <a href="#" class="footer-link" data-link-name="My Wishlist">My Wishlist</a>
-            <a href="#" class="footer-link" data-link-name="Track My Order">Track My Order</a>
-            <a href="#" class="footer-link" data-link-name="Help">Help</a>
-        </div>
+    <div class="copyright">
+        <p>Ecommerce Website Template</p>
+    </div>
 
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From app store or Google PLay Store</p>
-            <div class="row">
-                <a href="YOUR_APP_STORE_URL_HERE_E.G._https://apps.apple.com/us/app/your-app-name/id123456789" target="_blank" rel="noopener">
-                    <img src="https://placehold.co/150x50/000000/FFFFFF?text=App+Store" alt="Download on the App Store">
-                </a>
-                <a href="YOUR_PLAY_STORE_URL_HERE_E.G._https://play.google.com/store/apps/details?id=your.app.id" target="_blank" rel="noopener">
-                    <img src="https://placehold.co/150x50/000000/FFFFFF?text=Google+Play" alt="Get it on Google Play">
-                </a>
-            </div>
-            <p>Secured payment Gateways</p>
-            <img src="https://placehold.co/200x50/000000/FFFFFF?text=Payment+Methods" alt="Payment Methods">
-        </div>
+   </footer>
 
-        <div class="copyright">
-            <p>Ecommerce Website Template</p>
-        </div>
-    </footer>
-
-    <!-- Your custom JavaScript for Adobe Analytics implementation -->
-    <!-- This script should be placed after all HTML content, but before script.js -->
-    <script>
-        // --- Adobe Analytics Configuration ---
-        // IMPORTANT: Replace "YOUR_REPORT_SUITE_ID" with your actual Adobe Analytics Report Suite ID.
-        var s_account = "YOUR_REPORT_SUITE_ID";
-        var s = s_gi(s_account); // Initialize the s object
-
-        // --- Helper function to get product data from DOM element ---
-        function getProductData(element) {
-            return {
-                id: element.getAttribute('data-product-id'),
-                name: element.getAttribute('data-product-name'),
-                brand: element.getAttribute('data-product-brand'),
-                category: element.getAttribute('data-product-category'),
-                price: parseFloat(element.getAttribute('data-product-price'))
-            };
-        }
-
-        // --- Page Load Tracking (s.t() call) ---
-        // This runs once when the page loads.
-
-        // Standard Page Name (s.pageName)
-        s.pageName = "Homepage"; // Set a specific name for your homepage
-
-        // Traffic Variables (s.propX) - Non-persistent, for current page context
-        s.prop1 = "Homepage"; // Prop 1: Page Type
-        s.prop2 = "Home"; // Prop 2: Site Section
-        s.prop3 = document.title; // Prop 3: Page Title (from HTML <title> tag)
-        s.prop4 = window.location.pathname; // Prop 4: Clean URL Path (e.g., "/")
-
-        // Prop 5: Promotional Banner Name (if present on page load)
-        var promoBanner = document.querySelector('.promotional-banner');
-        if (promoBanner) {
-            s.prop5 = promoBanner.getAttribute('data-promo-name');
-        }
-
-        // Prop 6: Featured Product IDs (as a comma-separated list - ensure prop6 is configured as a List Var in Adobe)
-        var featuredProductIds = [];
-        document.querySelectorAll('#product-container-new-arrivals .pro.product-item').forEach(function(item) {
-            featuredProductIds.push(item.getAttribute('data-product-id'));
-        });
-        if (featuredProductIds.length > 0) {
-            s.prop6 = featuredProductIds.join(','); // Example: "P001,P002,P003"
-        }
-
-        s.prop7 = "Present"; // Prop 7: Search Bar Presence (assuming it's always on homepage)
-        s.prop8 = "Guest"; // Prop 8: User Status (Placeholder - implement actual login check)
-
-        // Conversion Variables (s.eVarX) - Persistent, for attribution
-        // Example: s.eVar1 = "New Visitor"; // You would set this based on visitor cookies/history
-        // Example: s.eVar2 = "Direct Traffic"; // If you have logic to determine traffic source
-
-        // Events (s.events) - Metrics to count actions
-        // s.events = "event1"; // Example: If event1 is configured as "Homepage View"
-
-        // Send the page view data to Adobe Analytics
-        s.t();
-
-        // --- Event Listeners for Interaction Tracking (s.tl() calls) ---
-        // These run when a user interacts with specific elements.
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // 1. Navigation Clicks (Header Navbar)
-            document.querySelectorAll('#navbar .nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    // Clear linkTrackVars and linkTrackEvents to ensure only relevant variables are sent for this click
-                    s.linkTrackVars = "prop9"; // Example: prop9 for Navigation Link Text
-                    s.linkTrackEvents = "event2"; // Example: event2 for Navigation Click
-                    s.prop9 = this.getAttribute('data-nav-text') || this.innerText.trim(); // Capture link text
-                    s.tl(this, 'o', 'Navigation Click: ' + s.prop9); // 'o' for custom link, name for debugger
-                    // Clear after sending
-                    s.linkTrackVars = '';
-                    s.linkTrackEvents = '';
-                    s.prop9 = '';
-                });
-            });
-
-            // 2. Main Action Buttons (Shop Now, Explore More)
-            document.querySelectorAll('.action-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    s.linkTrackVars = "prop10"; // Example: prop10 for Button Label
-                    s.linkTrackEvents = "event3"; // Example: event3 for General Button Click
-                    s.prop10 = this.innerText.trim(); // Capture button text
-                    s.tl(this, 'o', 'Action Button Click: ' + s.prop10);
-                    s.linkTrackVars = '';
-                    s.linkTrackEvents = '';
-                    s.prop10 = '';
-                });
-            });
-
-            // 3. Add to Cart Buttons (for products displayed on homepage)
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productItem = this.closest('.product-item');
-                    const product = getProductData(productItem);
-
-                    // Clear s.products and s.events before setting for this specific action
-                    s.products = "";
-                    s.events = "";
-
-                    // Construct s.products string for the added product
-                    // Format: "Category;Product Name;Quantity;Price;Events;eVars"
-                    s.products = product.category + ";" + product.name + ";1;" + product.price;
-
-                    // Set the standard Add to Cart event
-                    s.events = "scAdd"; // scAdd is a standard Adobe Analytics event for Add to Cart
-
-                    // Optional: Set a merchandising eVar if you want to attribute the add to cart
-                    // to a specific finding method or promotion (ensure eVarX is configured as merchandising eVar)
-                    // s.eVarX = "Homepage Featured Product";
-                    // s.products += ";;eVarX=" + s.eVarX; // Append to products string if merchandising eVar
-
-                    s.linkTrackVars = "products,events"; // Include products and events in this link tracking call
-                    // If using merchandising eVars, also include them in linkTrackVars: s.linkTrackVars = "products,events,eVarX";
-                    s.linkTrackEvents = "scAdd"; // Only send scAdd event with this link click
-
-                    s.tl(this, 'o', 'Add to Cart: ' + product.name);
-
-                    // Clear variables after sending the hit to prevent them from persisting on subsequent page views
-                    s.products = '';
-                    s.events = '';
-                    // s.eVarX = ''; // Clear merchandising eVar if set
-                    s.linkTrackVars = '';
-                    s.linkTrackEvents = '';
-                });
-            });
-
-            // 4. Newsletter Signup
-            const newsletterSignupBtn = document.getElementById('newsletterSignupBtn');
-            const newsletterEmailInput = document.getElementById('newsletterEmail');
-            if (newsletterSignupBtn && newsletterEmailInput) {
-                newsletterSignupBtn.addEventListener('click', function() {
-                    const email = newsletterEmailInput.value;
-                    if (email) {
-                        // For privacy, you should hash the email before sending. This is a simple Base64 encode for demo.
-                        // In production, use a strong, one-way hashing algorithm (e.g., SHA256) on the server-side or a secure client-side library.
-                        const hashedEmail = btoa(email); // Example: Base64 encode
-
-                        s.linkTrackVars = "prop11,eVar3"; // prop11 for Form Name, eVar3 for Hashed Email
-                        s.linkTrackEvents = "event4"; // Example: event4 for Newsletter Signup
-                        s.prop11 = "Newsletter Subscription Footer"; // Form Name
-                        s.eVar3 = hashedEmail; // Persistent hashed email
-
-                        s.tl(this, 'o', 'Newsletter Signup');
-                        alert('Thank you for signing up!'); // Use a custom modal in a real app
-                        newsletterEmailInput.value = ''; // Clear input
-                        s.linkTrackVars = '';
-                        s.linkTrackEvents = '';
-                        s.prop11 = '';
-                        s.eVar3 = '';
-                    } else {
-                        alert('Please enter your email address.'); // Use a custom modal in a real app
-                    }
-                });
-            }
-
-            // 5. Promotional Banner Clicks (Banner 3 sections)
-            document.querySelectorAll('#banner3 .banner-box').forEach(banner => {
-                banner.addEventListener('click', function() {
-                    s.linkTrackVars = "prop12"; // prop12 for Promo Name
-                    s.linkTrackEvents = "event5"; // event5 for Promo Click
-                    s.prop12 = this.getAttribute('data-promo-name');
-                    s.tl(this, 'o', 'Promo Banner Click: ' + s.prop12);
-                    s.linkTrackVars = '';
-                    s.linkTrackEvents = '';
-                    s.prop12 = '';
-                });
-            });
-
-            // 6. Footer Links
-            document.querySelectorAll('footer .footer-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    s.linkTrackVars = "prop13"; // prop13 for Footer Link Text
-                    s.linkTrackEvents = "event6"; // event6 for Footer Link Click
-                    s.prop13 = this.getAttribute('data-link-name') || this.innerText.trim();
-                    s.tl(this, 'o', 'Footer Link Click: ' + s.prop13);
-                    s.linkTrackVars = '';
-                    s.linkTrackEvents = '';
-                    s.prop13 = '';
-                });
-            });
-
-            // Mobile Navigation Toggle (existing functionality)
-            const bar = document.getElementById('bar');
-            const close = document.getElementById('close');
-            const nav = document.getElementById('navbar');
-
-            if (bar) {
-                bar.addEventListener('click', () => {
-                    nav.classList.add('active');
-                });
-            }
-
-            if (close) {
-                close.addEventListener('click', () => {
-                    nav.classList.remove('active');
-                });
-            }
-
-        }); // End DOMContentLoaded
-    </script>
-
-    <!-- Your existing script.js (ensure it doesn't conflict with Adobe Analytics or is integrated) -->
     <script src="script.js"></script>
 </body>
 </html>
