@@ -167,31 +167,56 @@
         }
     </style>
     
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        // You can push initial data for the cart page here if needed.
-        // For example, to track cart view:
-        // window.dataLayer.push({
-        //     'event': 'cartView',
-        //     'cart': {
-        //         'cartId': 'CART123', // Your cart ID
-        //         'totalValue': '150.00',
-        //         'items': [
-        //             { 'id': 'PROD001', 'name': 'Product A', 'price': '50.00', 'quantity': 1 },
-        //             { 'id': 'PROD002', 'name': 'Product B', 'price': '100.00', 'quantity': 1 }
-        //         ]
-        //     },
-        //     'pageName': 'Shopping Cart',
-        //     'pageType': 'Cart'
-        // });
-    </script>
+     <script>
+window.digitalData = window.digitalData || {};
+ 
+// General Page Information
+window.digitalData.page = {
+pageInfo: {
+pageName: document.title,
+pageURL: window.location.href,
+pageCategory: 'homepage', // e.g., 'homepage', 'product page', 'category page', 'checkout page'
+pageType: 'webpage',
+language: 'en-US',
+siteSection: 'main'
+},
+attributes: {
+// Any custom page attributes
+}
+};
+ 
+// User Information (if available and GDPR compliant)
+window.digitalData.user = {
+profile: {
+profileInfo: {
+userID: 'USER_ID_IF_LOGGED_IN', // Replace with actual user ID
+customerID: 'CUSTOMER_ID', // Your internal customer ID
+loggedIn: 'true', // 'true' or 'false'
+emailHash: 'MD5_HASH_OF_EMAIL' // Hashed email for identity if needed
+},
+attributes: {
+loyaltyTier: 'none', // e.g., 'bronze', 'silver', 'gold'
+isNewCustomer: 'true' // 'true' or 'false'
+}
+}
+};
+ 
+// Cart Information (if applicable, e.g., on every page load for mini-cart)
+window.digitalData.cart = {
+cartID: 'CART_ID_123', // Unique ID for the current cart
+cartTotal: 0.00,
+currency: 'USD',
+shippingMethod: '',
+paymentMethod: '',
+items: [] // Array of items in the cart
+};
+ 
+// ... other global data points like environmental data, device info, etc.
+ 
+</script>
+    <script src="https://assets.adobedtm.com/236ca7d75265/0e5ffd7fd3f5/launch-bbb8f56dfdd0-development.min.js" async></script>
     
-    <script>
-        // Placeholder for Adobe Launch/DTM embed code.
-        // In a real scenario, you'd replace this comment and script tag with the actual embed code provided by Adobe.
-        console.log("Adobe Launch/DTM embed code placeholder."); 
-    </script>
-
+   
 </head>
 <body id="cart-page">
     <section id="header">
